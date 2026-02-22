@@ -1,0 +1,60 @@
+c0:	rgb16F
+c1:	rgb16
+c2:	rgba8
+c3:	rgba8
+c4:	rgb16F
+c5:	rgb16F
+c6:	rgb16F
+c7:	rgb16F
+
+shadow:
+	s0:	rgb 材质贴图
+	s1:	rgb 世界空间下的几何法线（用于RSM）
+gbuffers:
+	c0:	rgb 材质贴图
+	c1:	rg 光照图uv
+		b 物品id
+	c2：rg 几何法线
+		ba 视差法线
+	c3:	rgba 金属度粗糙度等（specularData）
+deferred:
+	c4:	RSM（半分辨率）
+	c5:	透射率lut
+deferred1:
+	c4:	RSM横向模糊
+	c5:	全景天空盒+透射率lut+太阳颜色
+deferred2:
+	c4:	RSM纵向模糊
+	c5:	全景天空盒+透射率lut+太阳颜色+天光颜色
+	c6: RSM历史帧（左下角）
+deferred3:
+	c0:	不透明物光照（阴影+PBR+天光+RSM+GTAO+光源+次表面散射）
+deferred4:
+	c4:	天空（左下角） + 云（右上角）
+deferred5:
+	c4:	云隙光（右下角）
+deferred6:
+	c0：主画面（不透明物+天空云）
+	c4：同c0（用于water计算折射反射）
+water（半透明物渲染阶段）:
+	c0:	水（焦散+水雾+反射+折射）+半透明物
+composite:
+	c4:	体积光雏形
+	c6:	体积光历史帧（右上角）
+composite1:
+	c4:	大气雾（左下角）+体积雾/水中水雾（右上角）
+composite2:
+	c0:	主画面
+composite3:
+	c4:	运动向量
+composite4:
+	c0:	主画面（TAA）
+	c7:	主画面历史帧
+composite5:
+	c4:	生成mipmap链+横向模糊
+composite6:
+	c4:	纵向模糊
+composite7:
+	c0:	主画面结合c4（bloom）
+final:
+	最终输出：主画面+自动曝光+tonemap
