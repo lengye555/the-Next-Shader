@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "uniforms": [],
+  "samplers": {},
+  "opaqueDrawBuffers": [0, 1, 2, 3],
+  "translucentDrawBuffers": [0],
+  "blending": {
+    "-1": "SRC_ALPHA ONE_MINUS_SRC_ALPHA ONE ONE_MINUS_SRC_ALPHA"
+  },
+  "opaquePatchData": "void voxy_emitFragment(VoxyFragmentParameters parameters) {discard;}",
+  "translucentPatchData": "void voxy_emitFragment(VoxyFragmentParameters parameters) {discard;}"
+}
